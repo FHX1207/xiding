@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="head" id="head">
+        <div class="link">
+                <div>网易有道词典</div>
+                <div>有道云笔记</div>
+                <div>屏幕快捷方式</div>
+                <div>代码程序袁</div>
+                <div>稳扎稳打</div>
+                <div>不要觉得</div>
+                <div>你拼的样子</div> 
+            </div>
+        </div>
+    <div class="wrapper">
+        <div>
+        <header class="header">
+            <input type="text" name="" id="inp" placeholder="搜素">
+
+        </header>
+    
+    <section class="main">
+ <div class="bscro">
+        <div>网易有道词典</div>
+        <div>有道云笔记</div>
+        <div>屏幕快捷方式</div>
+        <div>代码程序袁</div>
+        <div>稳扎稳打</div>
+        <div>不要觉得</div>
+        <div>你拼的样子</div> 
+    </div>
+    <div class="heighTop"></div>
+    </section>
+    <footer class="footer"></footer>
+</div>
+</div>
+
+    <script src="./js/flexible.js"></script>
+    <script src="js/libs/bscroll.min.js"></script>
+    <script>
+  
+
+    let mainScroll=new BScroll(".wrapper",{
+        probeType:2,
+        click:true,
+        tap:true
+    });
+    let wrapHead=new BScroll("#head",{
+        probeType:2,
+        click:true
+    })
+        
+    var obj=document.querySelector(".header");
+  
+    var offTop=obj.offsetTop;
+    mainScroll.on("scroll",function(){
+     if(this.y>-offTop){
+         head.style.display="none"
+     }else{
+        head.style.display="block"
+        let liklist=[...document.querySelectorAll(".link div")];
+        let bscrolist=[...document.querySelectorAll(".bscro div")];
+
+        
+        bscrolist.forEach((item,index)=>{
+            let inHeigth=item.offsetTop;
+            let outHeigth=inHeigth+item.offsetHeight;
+            console.log(item.offsetHeight)
+            if(this.y<-inHeigth&&this.y>-outHeigth){
+               
+                render(liklist[index])
+               
+               
+            }
+        })
+    liklist.forEach((item,index)=>{
+        if(item.className=="active"){
+            let wits=item.offsetWidth;
+        wrapHead.scrollTo(-wits*index,0,1000)
+        }
+        
+    })
+       
+     }
+    })
+    function render(e){
+        let stclass=e.parentNode.querySelector(".active")
+        if(stclass){
+            stclass.classList.remove("active")
+        }
+        e.classList.add("active")
+    }
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

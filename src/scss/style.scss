@@ -1,0 +1,91 @@
+@import "common.scss";
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.head{
+    width: 100%;
+   z-index: 80;
+    height: 88px;
+    background: orange;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    display: none;
+    overflow-x: scroll;
+    .link{
+        display: flex;
+        height: 88px; 
+        line-height: 88px;
+        color: #fff;
+      
+       div{
+        width: 250px;
+        flex-shrink: 0;
+        text-align: center;
+        &.active{
+            background: green;
+        }
+       }
+      
+    }
+}
+
+.wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+   
+    .header{
+        width: 100%;
+        height: 88px;
+        border-bottom: 10px solid green;
+        margin-bottom: 20px;
+        line-height: 80px;
+        #inp{
+            width: 90%;
+            height: 60px;
+            border: 1px solid #000;
+            border-radius: 10%;
+            margin-left: 50px;
+            text-indent: 20px;
+            // display: none;
+        }
+       
+       
+    }
+    .main{
+        width: 100%;
+        flex: 1;
+        .bscro{
+            width: 100%;
+
+            div{
+                background: pink;
+                height: 300px;
+                color: green;
+                font-size: 34px;
+                border-bottom: 1px solid #000;
+                line-height: 300px;
+            }
+        }
+        .heighTop{
+            width: 100%;
+            height: 500px;
+            background: #000;
+        }
+    }
+    .footer{
+        width: 100%;
+        height: 88px;
+        background: red;
+    }
+}
